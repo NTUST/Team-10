@@ -1,0 +1,55 @@
+input.mysearch {
+	width:260px;
+	text-align: center;
+	display: inline;
+}
+
+.mybtn {
+	text-align: center;
+	margin: 2px 2px;
+	background-color: #f05f40;
+	border-radius: 4px;
+	display: inline;
+}
+
+div.mypost {
+	width: 360px;
+	margin: 0px auto;
+	border-radius: 4px;
+	color: #fff;
+}
+
+h4.modal-title {
+	text-align: center;
+}
+
+li.musician:hover ul{
+	display: block;
+	min-width: 90px;
+}
+
+li.musician:hover a.dropdown{
+	color: #262626;
+	text-decoration: none;
+	background-color: #f5f5f5;
+}
+
+.profile {
+	min-height: 30%;
+	background-image: url(../img/profile/1.jpg);
+}
+
+.author {
+	width: 120px;
+	height: 120px;
+	float: left;
+	margin-top: 150px;
+}
+
+.info {
+	width: 200px;
+	float: left;
+	margin-top: 80px;
+	margin-left: 20px;
+	color: #fff;
+}
