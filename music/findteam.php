@@ -29,52 +29,53 @@
 					<span class="dropdown">Popular</span>
 				</div>
 			</header>-->
-			<a class="grid__item" href="#">
-				<h2 class="title title--preview">徵樂手</h2>
-				<div class="loader"></div>
-				<div class="meta meta--preview">
-					<img class="meta__avatar" src="img/authors/1.png" alt="author01" />
-					<span class="meta__date"><i class="fa fa-calendar-o"></i> 9 Apr</span>
-					<!--<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span>-->
-				</div>
-			</a>
-			<a class="grid__item" href="#">
-				<h2 class="title title--preview">The Things we Lost in the Fire</h2>
-				<div class="loader"></div>
-				<div class="meta meta--preview">
-					<img class="meta__avatar" src="img/authors/2.png" alt="author02" /> 
-					<span class="meta__date"><i class="fa fa-calendar-o"></i> 7 Apr</span>
-					<!--<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 5 min read</span>-->
-				</div>
-			</a>
+			<?php
+				include("config.php");
+				$sql = "SELECT * FROM post WHERE p='0'";
+				$result = $link->query($sql);
+
+				while($row = $result->fetch_assoc()) {
+					$uid = $row["uid"];
+					$photosql = "SELECT photo FROM user WHERE uid='$uid'";
+					$photoresult = $link->query($photosql);
+					$photo = $photoresult->fetch_assoc();
+					echo '<a class="grid__item" href="#">';
+					echo '<h2 class="title title--preview">'.$row["title"].'</h2>';
+					echo '<div class="loader"></div>';
+					echo '<div class="meta meta--preview">';
+					echo '<div class="team-box">';
+					echo '<img class="meta__avatar" src="'.$photo["photo"].'" alt="author01" />
+							</div>
+							<span class="meta__date"><i class="fa fa-calendar-o"></i>'.date('j M', strtotime($row["date"])).'</span>
+							<!--<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span>-->
+						</div>
+					</a>';
+				}
+
+				$sql = "SELECT * FROM post WHERE p='0'";
+				$result = $link->query($sql);
+
+				echo '</section><section class="content"><div class="scroll-wrap">';
+				while($row = $result->fetch_assoc()) {
+					//Get the author's name
+					$uid = $row["uid"];
+					$infosql = "SELECT name, goodat, photo FROM user WHERE uid='$uid'";
+					$inforesult = $link->query($infosql);
+					$info = $inforesult->fetch_assoc();
+					echo '<article class="content__item">';
+					echo '<h2 class="title title--full">'.$row["title"].'</h2>';
+					echo '<div class="meta meta--full">';
+					echo '<img class="meta__avatar" src="'.$info["photo"].'" alt="author01" />';
+					echo '<span class="meta__author">'.$info["name"].'</span>';
+					echo '<span class="meta__date"><i class="fa fa-calendar-o"></i>'.date('j M', strtotime($row["date"])).'</span><br>';
+					echo '<span class="category category--full">擅長樂器: '.$info["goodat"].'</span>';
+					echo '</div><p></p><p>'.$row["content"].'</p></article>';
+				}
+			?>
 			<!--<footer class="page-meta">
 				<span>Load more...</span>
 			</footer>-->
-		</section>
-		<section class="content">
-			<div class="scroll-wrap">
-				<article class="content__item">
-					<span class="category category--full">Stories for humans</span>
-					<h2 class="title title--full">On Humans &amp; other Beings</h2>
-					<div class="meta meta--full">
-						<img class="meta__avatar" src="img/authors/1.png" alt="author01" />
-						<span class="meta__author">Matthew Walters</span>
-						<span class="meta__date"><i class="fa fa-calendar-o"></i> 9 Apr</span>
-						<!--<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 3 min read</span>-->
-					</div>
-					<p>I am fully aware of the shortcomings in these essays. I shall not touch upon those which are characteristic of first efforts at investigation. The others, however, demand a word of explanation.</p>
-				</article>
-				<article class="content__item">
-					<span class="category category--full">Love &amp; Hate</span>
-					<h2 class="title title--full">The Things we Lost in the Fire</h2>
-					<div class="meta meta--full">
-						<img class="meta__avatar" src="img/authors/2.png" alt="author02" />
-						<span class="meta__author">Christian Belverde</span>
-						<span class="meta__date"><i class="fa fa-calendar-o"></i> 7 Apr</span>
-						<!--<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 5 min read</span>-->
-					</div>
-					<p>Faulty psychic actions, dreams and wit are products of the unconscious mental activity, and like neurotic or psychotic manifestations represent efforts at adjustment to one’s environment. </p>
-				</article>
+
 			</div>
 			<button class="close-button"><i class="fa fa-close"></i><span>Close</span></button>
 		</section>

@@ -450,7 +450,7 @@ button:focus {
 
 .meta {
   font-size: 0.765em;
-  text-align: left;
+  text-align: center;
 }
 
 .meta .fa {
@@ -467,7 +467,9 @@ button:focus {
 }
 
 .meta__avatar {
-  display: block;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
   border-radius: 50%;
   margin: 2em auto;
 }
@@ -693,7 +695,7 @@ button:focus {
   content: "in ";
 }
 .meta--full .meta__avatar {
-  margin: 1em auto;
+  margin: 25px 8px;
 }
 
 .category--full,
@@ -825,7 +827,7 @@ button:focus {
 
   .main {
     height: 100%;
-    margin-right: 180px;
+    margin-right: 50px;
   }
 
   .content__item {

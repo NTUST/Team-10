@@ -20,17 +20,15 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
+    
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
 
-    <!-- Post CSS & JS-->
-    <link rel="stylesheet" href="css/postlist.css" type="text/css">
+    <!-- Post CSS -->
     <link rel="stylesheet" href="css/style1.css" type="text/css">
-    <script src="js/modernizr.custom.js"></script>
 
     <!-- My CSS -->
     <link rel="stylesheet" href="css/my.css" type="text/css">
@@ -39,6 +37,11 @@
     <link rel="stylesheet" type="text/css" href="css/dialog.css" />
     <!-- individual effect -->
     <link rel="stylesheet" type="text/css" href="css/dialog-don.css" />
+    <link rel="stylesheet" type="text/css" href="css/tabs.css" />
+    <script src="js/modernizr.custom.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+  
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,13 +74,13 @@
                         <a class="page-scroll" href="index.php">首頁</a>
                     </li>
                     <li class="musician">
-                        <a class="dropdown" href="findmusician.php">找樂手</a>
+                        <a class="dropdown" href="findmusician.php?m=全部">找樂手</a>
                         <ul class="dropdown-menu">
-                            <li><a href="post.php?m=1">吉他手</a></li>
-                            <li><a href="post.php?m=2">鼓手</a></li>
-                            <li><a href="post.php?m=3">主唱</a></li>
-                            <li><a href="post.php?m=4">貝斯手</a></li>
-                            <li><a href="post.php?m=5">鍵盤手</a></li>
+                            <li><a href="findmusician.php?m=吉他手">吉他手</a></li>
+                            <li><a href="findmusician.php?m=鼓手">鼓手</a></li>
+                            <li><a href="findmusician.php?m=主唱">主唱</a></li>
+                            <li><a href="findmusician.php?m=貝斯手">貝斯手</a></li>
+                            <li><a href="findmusician.php?m=鍵盤手">鍵盤手</a></li>
                         </ul>
                     </li>
                     <li>
@@ -85,7 +88,7 @@
                     </li>
                     <?php
                         if(isset($_SESSION["is_login"])) {
-                            echo '<li><a class="page-scroll"  href="profile.php">個人簡介</a></li>';
+                            echo '<li><a class="page-scroll"  href="userinfo.php">修改資料</a></li>';
                             echo '<li><a class="page-scroll"  href="logout.php">登出</a></li>';
                         }
                         else

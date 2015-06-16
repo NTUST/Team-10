@@ -44,10 +44,10 @@
                     <h4 class="modal-title">張貼找樂手資訊</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form" id="person" action="addpost.php?p=1&s=<?php echo session_id()?>" method="post">
+                    <form role="form" id="team" action="addpost.php?p=1&s=<?php echo $_SESSION["sn"]?>" method="post">
                         <div class="form-group">
                             <label for="title">文章標題</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="輸入張貼文章標" required>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="輸入張貼文章標題" required>
                         </div>
                         <div class="form-group">
                             <label>尋找樂手</label>
@@ -66,7 +66,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-default" form="person"></button>
+                    <input type="submit" class="btn btn-default" form="team"></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -81,19 +81,19 @@
                     <h4 class="modal-title">張貼找樂團資訊</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form" id="person" action="addpost.php?p=0&s=<?php echo session_id()?>" method="post">
+                    <form role="form" id="person" action="addpost.php?p=0&s=<?php echo $_SESSION["sn"]?>" method="post">
                         <div class="form-group">
                             <label for="title">文章標題</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="輸入張貼文章標" required>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="輸入張貼文章標題" required>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="musician">擅長樂器</label><br>
-                            <input type="checkbox" name="musician[]" value="吉他手">吉他手&nbsp;&nbsp;
-                            <input type="checkbox" name="musician[]" value="鼓手">鼓手&nbsp;
-                            <input type="checkbox" name="musician[]" value="主唱">主唱&nbsp;
-                            <input type="checkbox" name="musician[]" value="貝斯手">貝斯手&nbsp;
-                            <input type="checkbox" name="musician[]" value="鍵盤手">鍵盤手
-                        </div>
+                            <input type="checkbox" name="musician[]" value="吉他">吉他&nbsp;&nbsp;
+                            <input type="checkbox" name="musician[]" value="鼓">鼓&nbsp;
+                            <input type="checkbox" name="musician[]" value="唱歌">唱歌&nbsp;
+                            <input type="checkbox" name="musician[]" value="貝斯">貝斯&nbsp;
+                            <input type="checkbox" name="musician[]" value="keyboard">keyboard
+                        </div>-->
                         <div class="form-group">
                             <label for="content">文章內容</label>
                             <textarea class="form-control" id="content" name="content" placeholder="詳細描述你的專長" required></textarea>
@@ -107,8 +107,62 @@
             </div>
         </div>
     </div>
-
-    <section class="bg-primary" id="about">
+    <!--  
+        <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#pie').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Browser market shares at a specific website, 2014'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Browser share',
+                        data: [
+                            ['Firefox',   45.0],
+                            ['IE',       26.8],
+                            {
+                                name: 'Chrome',
+                                y: 12.8,
+                                sliced: true,
+                                selected: true
+                            },
+                            ['Safari',    8.5],
+                            ['Opera',     6.2],
+                            ['Others',   0.7]
+                        ]
+                    }]
+                });
+            });
+        </script>
+        <div style="width:100%; height:500px; margin-top:50px">
+        <div id="pie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; background-color:#FFF; color:#123451"></div>
+        
+    </div>
+    <section class="bg-primary" id="about">   
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -119,7 +173,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <section id="services">
         <div class="container">
@@ -165,6 +219,7 @@
     </section>
 
     <section class="no-padding" id="portfolio">
+        <h2 class="category-title">會員類別</h2>
         <!--<aside class="bg-dark">
             <div class="container text-center">
                 <div class="call-to-action">
@@ -176,13 +231,13 @@
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=0" class="portfolio-box">
                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     吉他手
                                 </div>
@@ -191,13 +246,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=1" class="portfolio-box">
                         <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     鼓手
                                 </div>
@@ -206,13 +261,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=2" class="portfolio-box">
                         <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     主唱
                                 </div>
@@ -221,13 +276,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=3" class="portfolio-box">
                         <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     貝斯手
                                 </div>
@@ -236,13 +291,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=4" class="portfolio-box">
                         <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     鍵盤手
                                 </div>
@@ -251,13 +306,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
+                    <a href="musician.php?c=5" class="portfolio-box">
                         <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <!--<div class="project-category text-faded">
                                     找樂手
-                                </div>
+                                </div>-->
                                 <div class="project-name">
                                     其他
                                 </div>
@@ -270,32 +325,30 @@
     </section>
 
     <section id="profile">
+        <h2 class="our-title">製作團隊</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-4  text-center">
-                    <div>
-                        <img src="http://lorempixel.com/200/200/abstract/1/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-                        <h2>Diseño Web</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="our-box">
+                        <img src="img/ours/1.jpg" alt="Texto Alternativo" class="img-circle img-thumbnail writer-photo">
+                        <h3>陳筠心</h3>
+                        <p>colleen135792014@gmail.com</p>
                     </div>
                 </div>
 
                 <div class="col-md-4  text-center">
-                    <div>
-                        <img src="http://lorempixel.com/200/200/abstract/2/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-                        <h2>Desarrollo Web</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="our-box">
+                        <img src="img/ours/2.jpg" alt="Texto Alternativo" class="img-circle img-thumbnail writer-photo">
+                        <h3>熊悅婷</h3>
+                        <p>hsiungg@gmail.com</p>
                     </div>
                 </div>
 
                 <div class="col-md-4  text-center">
-                    <div>
-                        <img src="http://lorempixel.com/200/200/abstract/2/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-                        <h2>Alojamiento Web</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="our-box">
+                        <img src="img/ours/3.jpg" alt="Texto Alternativo" class="img-circle img-thumbnail writer-photo">
+                        <h3>黃懿瑢</h3>
+                        <p>g5l64jo3@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -325,7 +378,7 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">hsiungg@gmail.com</a></p>
+                    <p><a href="mailto:bandmatch@gmail.com">bandmatch@gmail.com</a></p>
                 </div>
             </div>
         </div>

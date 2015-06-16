@@ -23,33 +23,260 @@ h4.modal-title {
 	text-align: center;
 }
 
-li.musician:hover ul{
+li.musician:hover ul {
 	display: block;
 	min-width: 90px;
 }
 
-li.musician:hover a.dropdown{
+li.musician:hover a.dropdown {
 	color: #262626;
 	text-decoration: none;
 	background-color: #f5f5f5;
 }
 
-.profile {
-	min-height: 30%;
+.writer-photo {
+	width: 275px;
+	height: 275px;
+}
+
+.category-title {
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	font-weight: 300;
+	color: #fff;
+	background-color: #f05f40;
+}
+
+.our-title {
+	color: #fff;
+	text-align: center;
+	font-weight: 300;
+	margin: -50px 0 40px;
+}
+
+.our-box {
+	color: #fff;
+}
+
+/* Find musician - img */
+.team-photo {
+	display: inline-block;
+	margin: 25px 8px;
+}
+
+.team-box {
+	width: 100%;
+}
+
+/* Userinfo - modify user info */
+.input-title {
+	width: 100%;
+	float: left;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.myinput {
+	width: 90%;
+	background-color: transparent;
+	color: #FFF;
+	font-size: 1.25em;
+	font-weight: 100;
+	padding: 15px 30px;
+	border: 2px solid #f05f40;
+	margin: 0 20px 20px 0 ;
+}
+
+.myinput:hover {
+	background-color: #f05f40;
+}
+
+.myinput:focus {
+	background-color: #f05f40;
+	outline: none;
+}
+
+.radiobox {
+	float: left;
+	padding: 0 10px 13px 0;
+	margin: 0 0 15px;
+}
+
+.upload-img {
+	padding: 0;
+}
+
+.upload-img input{
+	width: 100%;
+}
+
+.pickimg-btn {
+	position: relative;
+    	overflow: hidden;
+    	padding-top: 15px;    	
+}
+
+.pickimg-btn span {
+	font-size: 1.25em;
+	font-weight: 500;
+}
+
+.pickimg-btn input {
+	position: absolute;
+    	top: 0;
+    	right: 0;
+    	margin: 0;
+    	padding: 0;
+    	font-size: 20px;
+    	cursor: pointer;
+    	opacity: 0;
+    	filter: alpha(opacity=0);
+}
+
+.input-submit {
+	float: right;
+	margin-right: 35px
+}
+
+.submitbtn {
+	padding: 10px 80px;
+	margin: 10px;
+	background-color: #f05f40;
+	border: 1px solid #f05f40;
+	color: #fff;
+	font-weight: 500;
+}
+
+.submitbtn:active {
+	background-color: #CB472B;
+	border: 1px solid #CB472B;
+}
+
+.submitbtn:focus {
+	outline: none;
+}
+
+/* Userinfo - upload music */
+.upload-bar {
+	width: 80%;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.pickmusic-btn {
+	padding: 10px;
+  	margin: 11px -25px 0px -60px;
+}
+
+.pickmusic-btn  input{
+	position: absolute;
+	top: -6px;
+	height: 60px;
+	width: 150px;
+	opacity: 0;
+}
+.submitmusic-btn input{
+	padding: 15px 35px;
+	margin-top: 5px;
+}
+
+.user-music {
+	margin: 10px;
+}
+
+/* User */
+.titleimg {
+	min-height: 300px;
 	background-image: url(../img/profile/1.jpg);
 }
 
-.author {
-	width: 120px;
-	height: 120px;
-	float: left;
-	margin-top: 150px;
+.authorbox {
+	position: absolute;
+	margin: 240px 70px 0;
 }
 
-.info {
-	width: 200px;
+.authorimg {
 	float: left;
-	margin-top: 80px;
-	margin-left: 20px;
+	width: 120px;
+	height: 120px;
+}
+
+.name {
+	float: left;
+	margin: 80px 20px 0px;
+	font-weight: 100;
+}
+
+.usercontent {
+	margin: 20px 70px;
+}
+
+.usercontent > div {
+	height: 100%;
 	color: #fff;
+	padding: 10px;
+}
+
+.mytitle {
+	font-weight: 200;
+	text-align: center;
+}
+
+.infolist {
+	list-style: none;
+	float: left;
+	margin-left: -50px;
+}
+
+.infolist li{
+	margin: 8px 0;
+	line-height: 1.3;
+}
+
+.musicitem {
+	display: block;
+	width: 280px;
+	margin: 6px;
+	float: left;
+}
+
+.musicitem:hover {
+	opacity: 0.5;
+}
+
+.musicitem img {
+	width: 280px;
+	height: 230px;
+}
+
+.musicitem audio {
+	width: 280px;
+}
+
+.musicitem h4 {
+	margin-top: -2px;
+	text-align: left;
+}
+
+/* Musician */
+.musician-box {
+	width: 25%;
+	text-align: center;
+	float: left;
+	margin: 5px;
+}
+
+.musician-box:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.musician-photo {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.myintro {
+	text-align: left;
 }
